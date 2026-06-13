@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Mail, MessageCircle, ArrowRight } from "lucide-react";
 
-const contactEmail = "info@coxrd.com";
-const whatsappUrl = "https://wa.me/18295287575";
+const contactEmail = "info@corexrd.com.com";
+const whatsappUrl = "https://wa.me/18094061165";
 
 export default function Footer() {
   return (
@@ -69,7 +69,7 @@ export default function Footer() {
               className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-black"
             >
               <MessageCircle size={16} />
-              +1 (829) 528-7575
+              +1 (809) 406-1165
             </a>
 
             <Link

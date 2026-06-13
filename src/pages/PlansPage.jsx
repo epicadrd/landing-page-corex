@@ -11,7 +11,7 @@ import {
   Star,
 } from "lucide-react";
 
-const whatsappUrl = "https://wa.me/18295287575";
+const whatsappUrl = "https://wa.me/18094061165";
 
 export default function PlansPage() {
   useEffect(() => {
@@ -31,9 +31,11 @@ export default function PlansPage() {
         <header className="border-b border-black/5 bg-white/85 backdrop-blur-2xl">
           <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between gap-5">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-[#14c8bb] text-white flex items-center justify-center font-black text-xl shadow-xl">
-                C
-              </div>
+              <img
+                  src="/corexicon.png"
+                  alt="Corex"
+                  className="w-11 h-11 object-contain"
+                />
 
               <div>
                 <p className="font-black leading-none text-lg">Corex</p>
@@ -72,111 +74,100 @@ export default function PlansPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5 mt-16">
-            {[
-              [
-                "Básico",
-                "RD$ 1,995",
-                [
-                  "Facturación",
-                  "Cotizaciones",
-                  "Clientes",
-                  "Inventario básico",
-                ],
-              ],
-
-              [
-                "Profesional",
-                "RD$ 3,995",
-                [
-                  "Todo en Básico",
-                  "Inventario avanzado",
-                  "Conduces",
-                  "Recibos",
-                  "Reportes",
-                ],
-              ],
-
-              [
-                "Premium",
-                "RD$ 6,995",
-                [
-                  "Todo en Profesional",
-                  "Roles avanzados",
-                  "Dashboard avanzado",
-                  "Soporte prioritario",
-                ],
-              ],
-            ].map(([name, amount, items], index) => (
-              <div
-                key={name}
-                data-aos="flip-left"
-                data-aos-delay={index * 120}
-                className={`rounded-[2rem] border p-7 shadow-sm ${
-                  index === 1
-                    ? "bg-black text-white border-black shadow-2xl scale-[1.02]"
-                    : "bg-white border-black/5"
-                }`}
-              >
-                {index === 1 && (
-                  <p className="inline-flex rounded-full bg-[#14c8bb] text-black px-4 py-1.5 text-xs font-black mb-5">
-                    Más recomendado
-                  </p>
-                )}
-
-                <div className="flex items-center justify-between">
-                  <h2 className="text-3xl font-black">{name}</h2>
-
-                  {index === 2 && (
-                    <div className="w-11 h-11 rounded-2xl bg-[#14c8bb]/15 text-[#14c8bb] flex items-center justify-center">
-                      <Star size={20} />
-                    </div>
-                  )}
-                </div>
-
-                <p className="text-5xl font-black mt-8">{amount}</p>
-
-                <p
-                  className={
-                    index === 1
-                      ? "text-slate-300 text-sm mt-2"
-                      : "text-slate-500 text-sm mt-2"
-                  }
-                >
-                  mensual
-                </p>
-
-                <ul className="mt-8 space-y-4">
-                  {items.map((item) => (
-                    <li key={item} className="flex items-center gap-3">
-                      <CheckCircle2
-                        size={20}
-                        className={
-                          index === 1
-                            ? "text-[#14c8bb]"
-                            : "text-[#0f766e]"
-                        }
-                      />
-
-                      <span className="font-semibold">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href={whatsappUrl}
-                  className={`mt-10 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-4 font-black transition ${
-                    index === 1
-                      ? "bg-white text-black hover:bg-slate-100"
-                      : "bg-black text-white hover:bg-slate-800"
-                  }`}
-                >
-                  Solicitar este plan
-                  <ArrowRight size={18} />
-                </a>
-              </div>
-            ))}
-          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+                     {[
+                         [
+                           "Emprendedor",
+                           "US$ 20",
+                           [
+                             "Facturas",
+                             "Cotizaciones",
+                             "Recibos",
+                             "Contabilidad básica",
+                             "2 usuarios",
+                             "e-CF",
+                           ],
+                         ],
+                         [
+                           "PyME",
+                           "US$ 45",
+                           [
+                             "Todo en Emprendedor",
+                             "Inventario completo",
+                             "Catálogo digital",
+                             "1 punto de venta con hardware",
+                             "3 usuarios",
+                             "Registro de actividades",
+                           ],
+                         ],
+                         [
+                           "Pro",
+                           "US$ 94",
+                           [
+                             "Todo en PyME",
+                             "6 usuarios",
+                             "2 puntos de venta con hardware",
+                             "Conduces",
+                             "Órdenes de compra",
+                             "Gestión de proveedores",
+                           ],
+                         ],
+                       ].map(([name, amount, items], index) => (
+                       <div
+                         key={name}
+                         data-aos="flip-left"
+                         data-aos-delay={index * 120}
+                         className={`rounded-[2rem] border p-7 shadow-sm ${
+                           index === 1
+                             ? "bg-black text-white border-black shadow-2xl scale-[1.02]"
+                             : "bg-white border-black/5"
+                         }`}
+                       >
+                         {index === 1 && (
+                           <p className="inline-flex rounded-full bg-[#14c8bb] text-black px-4 py-1.5 text-xs font-black mb-5">
+                             Más recomendado
+                           </p>
+                         )}
+         
+                         <h3 className="text-3xl font-black">{name}</h3>
+                         <p className="text-4xl font-black mt-6">{amount}</p>
+                         <p
+                           className={
+                             index === 1
+                               ? "text-slate-300 text-sm mt-1"
+                               : "text-slate-500 text-sm mt-1"
+                           }
+                         >
+                           mensual
+                         </p>
+         
+                         <ul className="mt-7 space-y-3">
+                           {items.map((item) => (
+                             <li key={item} className="flex items-center gap-3">
+                               <CheckCircle2
+                                 size={20}
+                                 className={
+                                   index === 1 ? "text-[#14c8bb]" : "text-[#0f766e]"
+                                 }
+                               />
+                               <span className="font-semibold">{item}</span>
+                             </li>
+                           ))}
+                         </ul>
+         
+                         <a
+                           href={whatsappUrl}
+                           className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-4 font-black transition ${
+                             index === 1
+                               ? "bg-white text-black hover:bg-slate-100"
+                               : "bg-black text-white hover:bg-slate-800"
+                           }`}
+                         >
+                           Quiero este plan <ArrowRight size={18} />
+                         </a>
+                       </div>
+                     ))}
+                   </div>
         </section>
       </div>
       <Footer/>

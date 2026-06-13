@@ -13,9 +13,9 @@ import {
   MapPin,
 } from "lucide-react";
 
-const contactEmail = "info@coxrd.com";
-const whatsappUrl = "https://wa.me/18295287575";
-const whatsappNumber = "+1 (829) 528-7575";
+const contactEmail = "info@corexrd.com.com";
+const whatsappUrl = "https://wa.me/18094061165";
+const whatsappNumber = "+1 (809) 406-1165";
 
 export default function ContactPage() {
   useEffect(() => {
@@ -35,9 +35,11 @@ export default function ContactPage() {
         <header className="border-b border-black/5 bg-white/85 backdrop-blur-2xl">
           <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between gap-5">
             <a href="/" className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-[#14c8bb] text-white flex items-center justify-center font-black text-xl shadow-xl">
-                C
-              </div>
+              <img
+                  src="/corexicon.png"
+                  alt="Corex"
+                  className="w-11 h-11 object-contain"
+                />
               <div>
                 <p className="font-black leading-none text-lg">Corex</p>
                 <p className="text-xs mt-1 text-slate-500">

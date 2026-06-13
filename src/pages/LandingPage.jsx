@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import {
   ArrowRight,
   BarChart3,
+  ChevronUp,
   Building2,
   CheckCircle2,
   ChevronRight,
@@ -26,21 +27,34 @@ import {
   Zap,
 } from "lucide-react";
 
-const contactEmail = "info@coxrd.com";
-const whatsappUrl = "https://wa.me/18295287575";
+const contactEmail = "info@corexrd.com.com";
+const whatsappUrl = "https://wa.me/18094061165";
+const loginUrl = "https://app.corexrd.com/login";
+const registerUrl = "https://app.corexrd.com/registro";
 
 export default function LandingPage() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
-  useEffect(() => {
-    AOS.init({
-      duration: 900,
-      easing: "ease-out-cubic",
-      once: true,
-      offset: 90,
-      mirror: false,
-    });
-  }, []);
+ useEffect(() => {
+  AOS.init({
+    duration: 900,
+    easing: "ease-out-cubic",
+    once: true,
+    offset: 90,
+    mirror: false,
+  });
+
+  const handleScroll = () => {
+    setShowScrollTop(window.scrollY > 500);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
 
   const navItems = [
     { label: "Inicio", href: "#inicio" },
@@ -96,13 +110,26 @@ export default function LandingPage() {
               )}
             </nav>
 
-            <Link
-              to="/contacto"
-              className="hidden md:inline-flex items-center gap-2 rounded-full bg-black text-white px-5 py-3 text-sm font-black hover:bg-slate-800 transition shadow-xl"
-            >
-              Solicitar demo <ArrowRight size={16} />
-            </Link>
+            <div className="hidden md:flex items-center gap-3">
+                <a
+                  href={loginUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-black hover:bg-slate-50 transition"
+                >
+                  Iniciar sesión
+                </a>
 
+                <a
+                  href={registerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-black text-white px-5 py-3 text-sm font-black hover:bg-slate-800 transition shadow-xl"
+                >
+                  Regístrate <ArrowRight size={16} />
+                </a>
+
+              </div>
             <button
               type="button"
               onClick={() => setMenuOpen((value) => !value)}
@@ -136,6 +163,28 @@ export default function LandingPage() {
                   </a>
                 )
               )}
+
+              <div className="grid grid-cols-2 gap-3 pt-3">
+                <a
+                  href={loginUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleMenuClick}
+                  className="rounded-2xl px-4 py-3 bg-white border border-black/10 text-center font-black"
+                >
+                  Iniciar sesión
+                </a>
+
+                <a
+                  href={registerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleMenuClick}
+                  className="rounded-2xl px-4 py-3 bg-black text-white text-center font-black"
+                >
+                  Regístrate
+                </a>
+              </div>
             </nav>
           )}
         </header>
@@ -150,21 +199,23 @@ export default function LandingPage() {
             </div>
 
             <h1 className="text-4xl md:text-6xl xl:text-7xl font-black tracking-tight leading-[0.95]">
-              Factura, controla y vende con más orden.
+              e-CF, POS e inventario para negocios en RD.
             </h1>
 
             <p className="mt-8 text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-              Corex centraliza facturación, inventario, cotizaciones, conduces,
-              recibos, reportes y usuarios en una plataforma moderna para
-              negocios que quieren operar como una empresa grande.
+              Corex te ayuda a emitir e-CF, controlar inventario, vender desde punto
+              de venta, gestionar gastos, cuentas por cobrar y cuentas por pagar
+              desde una sola plataforma.
             </p>
-
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            
+           <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <a
-                href={whatsappUrl}
+                href={registerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-black px-8 py-4 font-black text-white hover:bg-slate-800 transition shadow-2xl"
               >
-                Solicitar demo gratis{" "}
+                Crear cuenta ahora
                 <ArrowRight
                   size={20}
                   className="group-hover:translate-x-1 transition"
@@ -172,10 +223,10 @@ export default function LandingPage() {
               </a>
 
               <a
-                href="#planes"
+                href={whatsappUrl}
                 className="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-white px-8 py-4 font-black hover:bg-slate-50 transition shadow-sm"
               >
-                Ver planes
+                Hablar por WhatsApp
               </a>
             </div>
           </div>
@@ -211,9 +262,9 @@ export default function LandingPage() {
                 <p className="font-black mb-3">Facturas recientes</p>
 
                 {[
-                  ["FAC-000128", "Distribuidora Méndez", "RD$ 18,500", "Pagada"],
-                  ["FAC-000127", "Comercial Rivera", "RD$ 12,900", "Pendiente"],
-                  ["FAC-000126", "Servicios Nova", "RD$ 27,300", "Pagada"],
+                  ["E32000100128", "Distribuidora Méndez", "RD$ 18,500", "Pagada"],
+                  ["E31000100127", "Comercial Rivera", "RD$ 12,900", "Pendiente"],
+                  ["E32000100126", "Servicios Nova", "RD$ 27,300", "Pagada"],
                 ].map((row) => (
                   <div
                     key={row[0]}
@@ -290,13 +341,37 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              [FileText, "Facturación", "Emite facturas profesionales y controla balances."],
-              [Package, "Inventario", "Gestiona productos, stock, movimientos y alertas."],
-              [ClipboardList, "Cotizaciones", "Prepara propuestas listas para convertir en facturas."],
-              [Truck, "Conduces", "Controla entregas y documentos operativos."],
-              [ReceiptText, "Recibos y pagos", "Registra abonos, pagos parciales e historial."],
-              [BarChart3, "Dashboard", "Consulta ventas, inventario y actividad del negocio."],
-            ].map(([Icon, title, text], index) => (
+                [
+                  FileText,
+                  "Facturación electrónica e-CF",
+                  "Emite facturas electrónicas con e-NCF, QR DGII, ITBIS, recibos y control de pagos.",
+                ],
+                [
+                  CreditCard,
+                  "Punto de venta POS",
+                  "Vende rápido desde caja, imprime tickets, usa lector de códigos y controla cierres diarios.",
+                ],
+                [
+                  Package,
+                  "Inventario completo",
+                  "Controla productos, servicios, stock, movimientos, mínimos, conteos e historial.",
+                ],
+                [
+                  ReceiptText,
+                  "Contabilidad básica",
+                  "Registra gastos, recibos, cuentas por cobrar, cuentas por pagar y balances pendientes.",
+                ],
+                [
+                  Truck,
+                  "Compras y proveedores",
+                  "Gestiona proveedores, órdenes de compra, conduces y operaciones del negocio.",
+                ],
+                [
+                  BarChart3,
+                  "Reportes y control",
+                  "Consulta ventas, inventario, actividad por usuario y métricas clave de tu empresa.",
+                ],
+              ].map(([Icon, title, text], index) => (
               <div
                 key={title}
                 data-aos="zoom-in-up"
@@ -372,6 +447,84 @@ export default function LandingPage() {
           </div>
         </section>
 
+        <section className="max-w-7xl mx-auto px-6 py-20">
+  <div
+    data-aos="fade-up"
+    className="rounded-[2.5rem] border border-black/5 bg-white p-8 md:p-12 shadow-xl"
+  >
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p className="text-[#0f766e] font-black mb-3">
+          COBERTURA NACIONAL
+        </p>
+
+        <h2 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
+          Diseñado para negocios en toda República Dominicana.
+        </h2>
+
+        <p className="mt-6 text-lg text-slate-600 leading-relaxed">
+          Corex ayuda a empresas a controlar inventario, emitir e-CF,
+          gestionar ventas, compras y operaciones desde una sola plataforma.
+          Pensado para negocios dominicanos que quieren crecer con orden y
+          tecnología.
+        </p>
+
+        <div className="grid grid-cols-2 gap-4 mt-8">
+          {[
+            ["+10", "módulos integrados"],
+            ["24/7", "acceso desde la web"],
+            ["e-CF", "facturación electrónica"],
+            ["RD", "enfoque local"],
+          ].map(([value, label]) => (
+            <div
+              key={label}
+              className="rounded-3xl border border-black/5 bg-slate-50 p-5"
+            >
+              <p className="text-3xl font-black">{value}</p>
+              <p className="text-slate-500 text-sm mt-1">{label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div className="rounded-[2rem] border border-black/5 bg-gradient-to-br from-[#14c8bb]/15 via-white to-slate-100 p-10 shadow-inner">
+          <div className="text-center">
+            <div className="text-7xl mb-6">🇩🇴</div>
+
+            <h3 className="text-3xl font-black">
+              Disponible en todo el país
+            </h3>
+
+            <p className="text-slate-600 mt-4">
+              Santo Domingo, Santiago, La Vega, San Cristóbal,
+              San Pedro de Macorís, Higüey, Puerto Plata y más.
+            </p>
+
+            <div className="mt-8 flex flex-wrap justify-center gap-2">
+              {[
+                "Colmados",
+                "Ferreterías",
+                "Tiendas",
+                "Repuestos",
+                "Restaurantes",
+                "Servicios",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full bg-white border border-black/5 px-4 py-2 text-sm font-bold shadow-sm"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
         <section
           id="planes"
           className="max-w-7xl mx-auto px-6 py-20 scroll-mt-28"
@@ -388,10 +541,43 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              ["Básico", "RD$ 1,995", ["Facturación", "Cotizaciones", "Clientes", "Inventario básico"]],
-              ["Profesional", "RD$ 3,995", ["Todo en Básico", "Inventario avanzado", "Conduces", "Recibos", "Reportes"]],
-              ["Premium", "RD$ 6,995", ["Todo en Profesional", "Roles avanzados", "Dashboard avanzado", "Soporte prioritario"]],
-            ].map(([name, amount, items], index) => (
+                [
+                  "Emprendedor",
+                  "US$ 20",
+                  [
+                    "Facturas",
+                    "Cotizaciones",
+                    "Recibos",
+                    "Contabilidad básica",
+                    "2 usuarios",
+                    "e-CF",
+                  ],
+                ],
+                [
+                  "PyME",
+                  "US$ 45",
+                  [
+                    "Todo en Emprendedor",
+                    "Inventario completo",
+                    "Catálogo digital",
+                    "1 punto de venta con hardware",
+                    "3 usuarios",
+                    "Registro de actividades",
+                  ],
+                ],
+                [
+                  "Pro",
+                  "US$ 94",
+                  [
+                    "Todo en PyME",
+                    "6 usuarios",
+                    "2 puntos de venta con hardware",
+                    "Conduces",
+                    "Órdenes de compra",
+                    "Gestión de proveedores",
+                  ],
+                ],
+              ].map(([name, amount, items], index) => (
               <div
                 key={name}
                 data-aos="flip-left"
@@ -490,6 +676,20 @@ export default function LandingPage() {
         </section>
         <Footer />
       </div>
+      
+      {showScrollTop && (
+        <button
+          onClick={() =>
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            })
+          }
+          className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-2xl bg-black text-white shadow-2xl flex items-center justify-center hover:bg-slate-800 transition animate-bounce"
+        >
+          <ChevronUp size={24} />
+        </button>
+      )}
     </main>
   );
 }

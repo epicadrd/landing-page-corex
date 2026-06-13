@@ -14,7 +14,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const whatsappUrl = "https://wa.me/18295287575";
+const whatsappUrl = "https://wa.me/18094061165";
 
 export default function SolutionsPage() {
   useEffect(() => {
@@ -61,9 +61,11 @@ export default function SolutionsPage() {
         <header className="border-b border-black/5 bg-white/85 backdrop-blur-2xl">
           <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between gap-5">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-[#14c8bb] text-white flex items-center justify-center font-black text-xl shadow-xl">
-                C
-              </div>
+              <img
+                  src="/corexicon.png"
+                  alt="Corex"
+                  className="w-11 h-11 object-contain"
+                />
 
               <div>
                 <p className="font-black leading-none text-lg">Corex</p>
