@@ -542,7 +542,7 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-5">
             {[
                 [
-                  "Emprendedor",
+                  "Básico",
                   "US$ 20",
                   [
                     "Facturas",
@@ -557,7 +557,7 @@ export default function LandingPage() {
                   "PyME",
                   "US$ 45",
                   [
-                    "Todo en Emprendedor",
+                    "Todo en básico",
                     "Inventario completo",
                     "Catálogo digital",
                     "1 punto de venta con hardware",
