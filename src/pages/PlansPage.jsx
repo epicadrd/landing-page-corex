@@ -77,7 +77,7 @@ export default function PlansPage() {
           <div className="grid md:grid-cols-3 gap-5">
                      {[
                          [
-                           "Emprendedor",
+                           "Básico",
                            "US$ 20",
                            [
                              "Facturas",
@@ -92,7 +92,7 @@ export default function PlansPage() {
                            "PyME",
                            "US$ 45",
                            [
-                             "Todo en Emprendedor",
+                             "Todo del básico",
                              "Inventario completo",
                              "Catálogo digital",
                              "1 punto de venta con hardware",
