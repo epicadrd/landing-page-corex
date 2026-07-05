@@ -11,13 +11,13 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-3">
             <img
-              src="/corexicon.png"
-              alt="Corex"
+              src="/IconoAventra.png"
+              alt="Aventra"
               className="w-12 h-12 object-contain"
             />
 
             <div>
-              <p className="font-black text-lg">Corex by Épica</p>
+              <p className="font-black text-lg">Aventra by Épica</p>
               <p className="text-sm text-slate-500">
                 Facturación • Inventario • Ventas
               </p>
@@ -85,7 +85,7 @@ export default function Footer() {
 
       <div className="border-t border-black/5">
         <div className="max-w-7xl mx-auto px-6 py-5 text-sm text-slate-500 flex flex-col md:flex-row justify-between gap-3">
-          <p>© {new Date().getFullYear()} Corex by Épica. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Aventra by Épica. Todos los derechos reservados.</p>
           <p>Desarrollado por Épica SRL.</p>
         </div>
       </div>

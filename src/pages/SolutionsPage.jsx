@@ -62,13 +62,13 @@ export default function SolutionsPage() {
           <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between gap-5">
             <Link to="/" className="flex items-center gap-3">
               <img
-                  src="/corexicon.png"
-                  alt="Corex"
+                  src="/IconoAventra.png"
+                  alt="Aventra"
                   className="w-11 h-11 object-contain"
                 />
 
               <div>
-                <p className="font-black leading-none text-lg">Corex</p>
+                <p className="font-black leading-none text-lg">Aventra</p>
                 <p className="text-xs mt-1 text-slate-500">
                   Facturación • Inventario • Ventas
                 </p>
@@ -92,11 +92,11 @@ export default function SolutionsPage() {
             </div>
 
             <h1 className="text-4xl md:text-6xl xl:text-7xl font-black tracking-tight leading-[0.95]">
-              Corex se adapta a diferentes operaciones.
-            </h1>
+              Aventra se adapta a diferentes operaciones.
+            </h1> 
 
             <p className="mt-7 text-lg md:text-xl text-slate-600 leading-relaxed">
-              Desde tiendas hasta distribuidoras, Corex te ayuda a facturar,
+              Desde tiendas hasta distribuidoras, Aventra te ayuda a facturar,
               organizar inventario, controlar clientes y manejar documentos de
               forma más profesional.
             </p>

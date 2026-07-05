@@ -76,12 +76,12 @@ export default function LandingPage() {
           <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-5">
             <a href="#inicio" className="flex items-center gap-3 shrink-0">
                 <img
-                  src="/corexicon.png"
-                  alt="Corex"
+                  src="/IconoAventra.png"
+                  alt="Aventra"
                   className="w-11 h-11 object-contain"
                 />
               <div>
-                <p className="font-black leading-none text-lg">Corex</p>
+                <p className="font-black leading-none text-lg">Aventra</p>
                 <p className="text-xs mt-1 text-slate-500">
                   Facturación • Inventario • Ventas
                 </p>
@@ -203,7 +203,7 @@ export default function LandingPage() {
             </h1>
 
             <p className="mt-8 text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-              Corex te ayuda a emitir e-CF, controlar inventario, vender desde punto
+              Aventra te ayuda a emitir e-CF, controlar inventario, vender desde punto
               de venta, gestionar gastos, cuentas por cobrar y cuentas por pagar
               desde una sola plataforma.
             </p>
@@ -463,7 +463,7 @@ export default function LandingPage() {
         </h2>
 
         <p className="mt-6 text-lg text-slate-600 leading-relaxed">
-          Corex ayuda a empresas a controlar inventario, emitir e-CF,
+          Aventra ayuda a empresas a controlar inventario, emitir e-CF,
           gestionar ventas, compras y operaciones desde una sola plataforma.
           Pensado para negocios dominicanos que quieren crecer con orden y
           tecnología.
@@ -652,7 +652,7 @@ export default function LandingPage() {
             </h2>
 
             <p className="mt-7 text-slate-300 text-lg md:text-xl max-w-3xl mx-auto">
-              Solicita una demo y mira cómo Corex puede ayudarte a facturar más
+              Solicita una demo y mira cómo Aventra puede ayudarte a facturar más
               rápido, controlar mejor tu inventario y organizar tu operación
               diaria.
             </p>
