@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, MessageCircle, ArrowRight } from "lucide-react";
 
-const contactEmail = "info@corexrd.com.com";
+const contactEmail = "info@aventrard.com.";
 const whatsappUrl = "https://wa.me/18094061165";
 
 export default function Footer() {

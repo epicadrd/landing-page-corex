@@ -27,10 +27,10 @@ import {
   Zap,
 } from "lucide-react";
 
-const contactEmail = "info@corexrd.com.com";
+const contactEmail = "info@aventrard.com.";
 const whatsappUrl = "https://wa.me/18094061165";
-const loginUrl = "https://app.corexrd.com/login";
-const registerUrl = "https://app.corexrd.com/registro";
+const loginUrl = "https://app.aventrard.com/login";
+const registerUrl = "https://app.aventrard.com/registro";
 
 export default function LandingPage() {
   const [menuOpen, setMenuOpen] = useState(false);
