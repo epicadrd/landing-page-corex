@@ -13,7 +13,7 @@ import {
   MapPin,
 } from "lucide-react";
 
-const contactEmail = "contacto@aventrard.com.";
+const contactEmail = "contacto@aventrard.com";
 const whatsappUrl = "https://wa.me/18094061165";
 const whatsappNumber = "+1 (809) 406-1165";
 
