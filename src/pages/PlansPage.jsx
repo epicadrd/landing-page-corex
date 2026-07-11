@@ -72,6 +72,8 @@ export default function PlansPage() {
               Empieza con el plan que mejor se adapte a tu operación y escala
               cuando tu negocio crezca.
             </p>
+            <br />
+            <br />
           </div>
 
           <div className="grid md:grid-cols-3 gap-5">

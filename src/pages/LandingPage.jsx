@@ -27,7 +27,7 @@ import {
   Zap,
 } from "lucide-react";
 
-const contactEmail = "info@aventrard.com.";
+const contactEmail = "contacto@aventrard.com";
 const whatsappUrl = "https://wa.me/18094061165";
 const loginUrl = "https://app.aventrard.com/login";
 const registerUrl = "https://app.aventrard.com/registro";
@@ -45,15 +45,172 @@ export default function LandingPage() {
     mirror: false,
   });
 
+  document.title =
+    "Aventra | Sistema de Facturación, Inventario y POS en República Dominicana";
+
+  const updateMetaTag = (selector, attribute, value, content) => {
+    let metaTag = document.querySelector(selector);
+
+    if (!metaTag) {
+      metaTag = document.createElement("meta");
+      metaTag.setAttribute(attribute, value);
+      document.head.appendChild(metaTag);
+    }
+
+    metaTag.setAttribute("content", content);
+  };
+
+  updateMetaTag(
+    'meta[name="description"]',
+    "name",
+    "description",
+    "Aventra es un sistema de facturación electrónica e-CF, inventario, punto de venta POS, contabilidad y gestión empresarial para negocios en República Dominicana."
+  );
+
+  updateMetaTag(
+    'meta[name="robots"]',
+    "name",
+    "robots",
+    "index, follow, max-image-preview:large"
+  );
+
+  updateMetaTag(
+    'meta[property="og:title"]',
+    "property",
+    "og:title",
+    "Aventra | Facturación, Inventario y POS para negocios en RD"
+  );
+
+  updateMetaTag(
+    'meta[property="og:description"]',
+    "property",
+    "og:description",
+    "Controla tus ventas, inventario, facturación electrónica e-CF, punto de venta y contabilidad desde una sola plataforma."
+  );
+
+  updateMetaTag(
+    'meta[property="og:type"]',
+    "property",
+    "og:type",
+    "website"
+  );
+
+  updateMetaTag(
+    'meta[property="og:url"]',
+    "property",
+    "og:url",
+    "https://aventrard.com/"
+  );
+
+  updateMetaTag(
+    'meta[property="og:image"]',
+    "property",
+    "og:image",
+    "https://aventrard.com/og-aventra.jpg"
+  );
+
+  updateMetaTag(
+    'meta[property="og:locale"]',
+    "property",
+    "og:locale",
+    "es_DO"
+  );
+
+  updateMetaTag(
+    'meta[name="twitter:card"]',
+    "name",
+    "twitter:card",
+    "summary_large_image"
+  );
+
+  updateMetaTag(
+    'meta[name="twitter:title"]',
+    "name",
+    "twitter:title",
+    "Aventra | Facturación, Inventario y POS para negocios en RD"
+  );
+
+  updateMetaTag(
+    'meta[name="twitter:description"]',
+    "name",
+    "twitter:description",
+    "Gestiona facturación electrónica e-CF, inventario, ventas, POS y contabilidad desde una sola plataforma."
+  );
+
+  updateMetaTag(
+    'meta[name="twitter:image"]',
+    "name",
+    "twitter:image",
+    "https://aventrard.com/og-aventra.jpg"
+  );
+
+  let canonicalLink = document.querySelector('link[rel="canonical"]');
+
+  if (!canonicalLink) {
+    canonicalLink = document.createElement("link");
+    canonicalLink.setAttribute("rel", "canonical");
+    document.head.appendChild(canonicalLink);
+  }
+
+  canonicalLink.setAttribute("href", "https://aventrard.com/");
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Aventra",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    url: "https://aventrard.com/",
+    image: "https://aventrard.com/og-aventra.jpg",
+    description:
+      "Sistema de facturación electrónica e-CF, inventario, punto de venta POS, contabilidad y gestión empresarial para negocios en República Dominicana.",
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "USD",
+      lowPrice: "20",
+      highPrice: "94",
+      offerCount: "3",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "ÉPICA SRL",
+      url: "https://aventrard.com/",
+      email: contactEmail,
+      telephone: "+1-809-406-1165",
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "DO",
+      },
+    },
+  };
+
+  let structuredDataScript = document.querySelector(
+    'script[data-seo="aventra-home"]'
+  );
+
+  if (!structuredDataScript) {
+    structuredDataScript = document.createElement("script");
+    structuredDataScript.type = "application/ld+json";
+    structuredDataScript.setAttribute("data-seo", "aventra-home");
+    document.head.appendChild(structuredDataScript);
+  }
+
+  structuredDataScript.textContent = JSON.stringify(structuredData);
+
   const handleScroll = () => {
     setShowScrollTop(window.scrollY > 500);
   };
 
+  handleScroll();
   window.addEventListener("scroll", handleScroll);
 
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  };
+ return () => {
+  window.removeEventListener("scroll", handleScroll);
+
+  if (structuredDataScript) {
+    structuredDataScript.remove();
+  }
+};
 }, []);
 
   const navItems = [
@@ -199,13 +356,13 @@ export default function LandingPage() {
             </div>
 
             <h1 className="text-4xl md:text-6xl xl:text-7xl font-black tracking-tight leading-[0.95]">
-              e-CF, POS e inventario para negocios en RD.
+              Sistema de facturación, inventario y POS para negocios en RD.
             </h1>
 
             <p className="mt-8 text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-              Aventra te ayuda a emitir e-CF, controlar inventario, vender desde punto
-              de venta, gestionar gastos, cuentas por cobrar y cuentas por pagar
-              desde una sola plataforma.
+              Emite facturas electrónicas e-CF, controla tu inventario, vende desde
+              punto de venta y administra las finanzas de tu negocio desde una sola
+              plataforma.
             </p>
             
            <div className="mt-10 flex flex-col sm:flex-row gap-4">
