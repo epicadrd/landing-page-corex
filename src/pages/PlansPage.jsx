@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
@@ -15,6 +15,8 @@ const plansPageUrl = "https://aventrard.com/planes";
 const socialImageUrl = "https://aventrard.com/og-aventra.jpg";
 
 export default function PlansPage() {
+  const [billingCycle, setBillingCycle] = useState("monthly");
+
   useEffect(() => {
     AOS.init({
       duration: 900,
@@ -218,7 +220,9 @@ export default function PlansPage() {
   const plans = [
     {
       name: "Básico",
-      amount: "US$ 20",
+      monthlyPrice: 20,
+      annualPrice: 200,
+      annualSavings: 40,
       items: [
         "Facturas",
         "Cotizaciones",
@@ -230,7 +234,9 @@ export default function PlansPage() {
     },
     {
       name: "PyME",
-      amount: "US$ 45",
+      monthlyPrice: 45,
+      annualPrice: 450,
+      annualSavings: 90,
       items: [
         "Todo del básico",
         "Inventario completo",
@@ -242,7 +248,9 @@ export default function PlansPage() {
     },
     {
       name: "Pro",
-      amount: "US$ 94",
+      monthlyPrice: 94,
+      annualPrice: 940,
+      annualSavings: 188,
       items: [
         "Todo en PyME",
         "6 usuarios",
@@ -305,10 +313,69 @@ export default function PlansPage() {
               mejor se adapte a tu empresa. Empieza desde US$20 al mes y escala
               cuando tu negocio crezca.
             </p>
+
+            <div className="mt-9 flex flex-col items-center gap-3">
+              <div
+                className="inline-flex items-center rounded-2xl border border-black/10 bg-white p-1.5 shadow-lg shadow-black/5"
+                role="group"
+                aria-label="Seleccionar período de facturación"
+              >
+                <button
+                  type="button"
+                  onClick={() => setBillingCycle("monthly")}
+                  aria-pressed={billingCycle === "monthly"}
+                  className={`rounded-xl px-5 py-3 text-sm font-black transition-all ${
+                    billingCycle === "monthly"
+                      ? "bg-black text-white shadow-md"
+                      : "text-slate-500 hover:text-black"
+                  }`}
+                >
+                  Mensual
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setBillingCycle("annual")}
+                  aria-pressed={billingCycle === "annual"}
+                  className={`flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-black transition-all ${
+                    billingCycle === "annual"
+                      ? "bg-black text-white shadow-md"
+                      : "text-slate-500 hover:text-black"
+                  }`}
+                >
+                  Anual
+                  <span
+                    className={`rounded-full px-2 py-0.5 text-[10px] font-black ${
+                      billingCycle === "annual"
+                        ? "bg-[#14c8bb] text-black"
+                        : "bg-[#14c8bb]/15 text-[#0f766e]"
+                    }`}
+                  >
+                    2 meses gratis
+                  </span>
+                </button>
+              </div>
+
+              <p className="text-sm font-semibold text-slate-500">
+                {billingCycle === "annual"
+                  ? "Paga una vez al año y ahorra el equivalente a 2 meses."
+                  : "Facturación mensual, sin compromiso anual."}
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-5">
-            {plans.map(({ name, amount, items }, index) => (
+            {plans.map(
+              (
+                {
+                  name,
+                  monthlyPrice,
+                  annualPrice,
+                  annualSavings,
+                  items,
+                },
+                index
+              ) => (
               <article
                 key={name}
                 data-aos="flip-left"
@@ -327,17 +394,58 @@ export default function PlansPage() {
 
                 <h2 className="text-3xl font-black">{name}</h2>
 
-                <p className="text-4xl font-black mt-6">{amount}</p>
+                <div className="mt-6 min-h-[92px]">
+                  <div className="flex items-end gap-2">
+                    <p
+                      key={`${name}-${billingCycle}`}
+                      className="text-4xl font-black leading-none"
+                    >
+                      US${" "}
+                      {billingCycle === "annual"
+                        ? annualPrice
+                        : monthlyPrice}
+                    </p>
 
-                <p
-                  className={
-                    index === 1
-                      ? "text-slate-300 text-sm mt-1"
-                      : "text-slate-500 text-sm mt-1"
-                  }
-                >
-                  mensual
-                </p>
+                    <span
+                      className={`pb-1 text-sm font-bold ${
+                        index === 1
+                          ? "text-slate-300"
+                          : "text-slate-500"
+                      }`}
+                    >
+                      /{billingCycle === "annual" ? "año" : "mes"}
+                    </span>
+                  </div>
+
+                  {billingCycle === "annual" ? (
+                    <div className="mt-3 flex flex-wrap items-center gap-2">
+                      <span className="rounded-full bg-[#14c8bb]/15 px-3 py-1 text-xs font-black text-[#14c8bb]">
+                        Ahorras US$ {annualSavings}
+                      </span>
+
+                      <span
+                        className={`text-xs font-semibold ${
+                          index === 1
+                            ? "text-slate-400"
+                            : "text-slate-500"
+                        }`}
+                      >
+                        Equivale a US${" "}
+                        {(annualPrice / 12).toFixed(2)}/mes
+                      </span>
+                    </div>
+                  ) : (
+                    <p
+                      className={`mt-3 text-xs font-semibold ${
+                        index === 1
+                          ? "text-slate-400"
+                          : "text-slate-500"
+                      }`}
+                    >
+                      Pago mes a mes
+                    </p>
+                  )}
+                </div>
 
                 <ul className="mt-7 space-y-3">
                   {items.map((item) => (
@@ -356,7 +464,13 @@ export default function PlansPage() {
 
                 <a
                   href={`${whatsappUrl}?text=${encodeURIComponent(
-                    `Hola, deseo recibir más información sobre el plan ${name} de Aventra.`
+                    `Hola, deseo recibir más información sobre el plan ${name} ${
+                      billingCycle === "annual" ? "anual" : "mensual"
+                    } de Aventra por US$ ${
+                      billingCycle === "annual"
+                        ? annualPrice
+                        : monthlyPrice
+                    }.`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -371,7 +485,8 @@ export default function PlansPage() {
                   <ArrowRight size={18} />
                 </a>
               </article>
-            ))}
+              )
+            )}
           </div>
         </section>
       </div>
