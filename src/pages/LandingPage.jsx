@@ -35,6 +35,7 @@ const registerUrl = "https://app.aventrard.com/registro";
 export default function LandingPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [billingCycle, setBillingCycle] = useState("monthly");
 
  useEffect(() => {
   AOS.init({
@@ -694,13 +695,64 @@ export default function LandingPage() {
             <h2 className="text-4xl md:text-6xl font-black tracking-tight">
               Planes simples para empezar rápido.
             </h2>
+
+            <div className="mt-8 flex flex-col items-center gap-3">
+              <div
+                className="inline-flex items-center rounded-2xl border border-black/10 bg-white p-1.5 shadow-lg shadow-black/5"
+                role="group"
+                aria-label="Seleccionar período de facturación"
+              >
+                <button
+                  type="button"
+                  onClick={() => setBillingCycle("monthly")}
+                  aria-pressed={billingCycle === "monthly"}
+                  className={`rounded-xl px-5 py-3 text-sm font-black transition-all ${
+                    billingCycle === "monthly"
+                      ? "bg-black text-white shadow-md"
+                      : "text-slate-500 hover:text-black"
+                  }`}
+                >
+                  Mensual
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setBillingCycle("annual")}
+                  aria-pressed={billingCycle === "annual"}
+                  className={`flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-black transition-all ${
+                    billingCycle === "annual"
+                      ? "bg-black text-white shadow-md"
+                      : "text-slate-500 hover:text-black"
+                  }`}
+                >
+                  Anual
+                  <span
+                    className={`rounded-full px-2 py-0.5 text-[10px] font-black ${
+                      billingCycle === "annual"
+                        ? "bg-[#14c8bb] text-black"
+                        : "bg-[#14c8bb]/15 text-[#0f766e]"
+                    }`}
+                  >
+                    2 meses gratis
+                  </span>
+                </button>
+              </div>
+
+              <p className="text-sm font-semibold text-slate-500">
+                {billingCycle === "annual"
+                  ? "Paga una vez al año y ahorra el equivalente a 2 meses."
+                  : "Facturación mensual, sin compromiso anual."}
+              </p>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="pricing-grid grid md:grid-cols-3 gap-5">
             {[
                 [
                   "Básico",
-                  "US$ 20",
+                  20,
+                  200,
+                  40,
                   [
                     "Facturas",
                     "Cotizaciones",
@@ -712,7 +764,9 @@ export default function LandingPage() {
                 ],
                 [
                   "PyME",
-                  "US$ 45",
+                  45,
+                  450,
+                  90,
                   [
                     "Todo en básico",
                     "Inventario completo",
@@ -724,7 +778,9 @@ export default function LandingPage() {
                 ],
                 [
                   "Pro",
-                  "US$ 94",
+                  94,
+                  940,
+                  188,
                   [
                     "Todo en PyME",
                     "6 usuarios",
@@ -734,16 +790,28 @@ export default function LandingPage() {
                     "Gestión de proveedores",
                   ],
                 ],
-              ].map(([name, amount, items], index) => (
+              ].map(
+                (
+                  [
+                    name,
+                    monthlyPrice,
+                    annualPrice,
+                    annualSavings,
+                    items,
+                  ],
+                  index
+                ) => (
               <div
-                key={name}
-                data-aos="flip-left"
-                data-aos-delay={index * 120}
-                className={`rounded-[2rem] border p-7 shadow-sm ${
+                key={`${name}-${billingCycle}`}
+                className={`pricing-card-flip rounded-[2rem] border p-7 shadow-sm ${
                   index === 1
                     ? "bg-black text-white border-black shadow-2xl scale-[1.02]"
                     : "bg-white border-black/5"
                 }`}
+                style={{
+                  animationDelay: `${index * 110}ms`,
+                  "--pricing-card-scale": index === 1 ? 1.02 : 1,
+                }}
               >
                 {index === 1 && (
                   <p className="inline-flex rounded-full bg-[#14c8bb] text-black px-4 py-1.5 text-xs font-black mb-5">
@@ -752,16 +820,59 @@ export default function LandingPage() {
                 )}
 
                 <h3 className="text-3xl font-black">{name}</h3>
-                <p className="text-4xl font-black mt-6">{amount}</p>
-                <p
-                  className={
-                    index === 1
-                      ? "text-slate-300 text-sm mt-1"
-                      : "text-slate-500 text-sm mt-1"
-                  }
-                >
-                  mensual
-                </p>
+
+                <div className="mt-6 min-h-[92px]">
+                  <div className="flex items-end gap-2">
+                    <p
+                      key={`${name}-${billingCycle}`}
+                      className="text-4xl font-black leading-none"
+                    >
+                      US${" "}
+                      {billingCycle === "annual"
+                        ? annualPrice
+                        : monthlyPrice}
+                    </p>
+
+                    <span
+                      className={`pb-1 text-sm font-bold ${
+                        index === 1
+                          ? "text-slate-300"
+                          : "text-slate-500"
+                      }`}
+                    >
+                      /{billingCycle === "annual" ? "año" : "mes"}
+                    </span>
+                  </div>
+
+                  {billingCycle === "annual" ? (
+                    <div className="mt-3 flex flex-wrap items-center gap-2">
+                      <span className="rounded-full bg-[#14c8bb]/15 px-3 py-1 text-xs font-black text-[#14c8bb]">
+                        Ahorras US$ {annualSavings}
+                      </span>
+
+                      <span
+                        className={`text-xs font-semibold ${
+                          index === 1
+                            ? "text-slate-400"
+                            : "text-slate-500"
+                        }`}
+                      >
+                        Equivale a US${" "}
+                        {(annualPrice / 12).toFixed(2)}/mes
+                      </span>
+                    </div>
+                  ) : (
+                    <p
+                      className={`mt-3 text-xs font-semibold ${
+                        index === 1
+                          ? "text-slate-400"
+                          : "text-slate-500"
+                      }`}
+                    >
+                      Pago mes a mes
+                    </p>
+                  )}
+                </div>
 
                 <ul className="mt-7 space-y-3">
                   {items.map((item) => (
@@ -778,7 +889,17 @@ export default function LandingPage() {
                 </ul>
 
                 <a
-                  href={whatsappUrl}
+                  href={`${whatsappUrl}?text=${encodeURIComponent(
+                    `Hola, deseo recibir más información sobre el plan ${name} ${
+                      billingCycle === "annual" ? "anual" : "mensual"
+                    } de Aventra por US$ ${
+                      billingCycle === "annual"
+                        ? annualPrice
+                        : monthlyPrice
+                    }.`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-4 font-black transition ${
                     index === 1
                       ? "bg-white text-black hover:bg-slate-100"
@@ -788,7 +909,8 @@ export default function LandingPage() {
                   Quiero este plan <ArrowRight size={18} />
                 </a>
               </div>
-            ))}
+                )
+              )}
           </div>
         </section>
 
