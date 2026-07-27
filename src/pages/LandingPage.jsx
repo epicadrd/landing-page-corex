@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
+import TutorialsSection from "../components/TutorialsSection";
 import {
   ArrowRight,
   BarChart3,
@@ -218,6 +219,7 @@ export default function LandingPage() {
     { label: "Inicio", href: "#inicio" },
     { label: "Soluciones", href: "/soluciones", route: true },
     { label: "Módulos", href: "/modulos", route: true },
+    { label: "Tutoriales", href: "#tutoriales" },
     { label: "Seguridad", href: "#seguridad" },
     { label: "Planes", href: "/planes", route: true },
     { label: "Contacto", href: "/contacto", route: true },
@@ -547,6 +549,8 @@ export default function LandingPage() {
             ))}
           </div>
         </section>
+
+        <TutorialsSection />
 
         <section
           id="proceso"
