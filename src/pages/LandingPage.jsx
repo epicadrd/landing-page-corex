@@ -219,7 +219,7 @@ export default function LandingPage() {
     { label: "Inicio", href: "#inicio" },
     { label: "Soluciones", href: "/soluciones", route: true },
     { label: "Módulos", href: "/modulos", route: true },
-    { label: "Tutoriales", href: "#tutoriales" },
+    { label: "Tutoriales", href: "tutoriales" },
     { label: "Seguridad", href: "#seguridad" },
     { label: "Planes", href: "/planes", route: true },
     { label: "Contacto", href: "/contacto", route: true },

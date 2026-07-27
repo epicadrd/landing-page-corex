@@ -4,6 +4,7 @@ import LandingPage from "./pages/LandingPage";
 import ContactPage from "./pages/ContactPage";
 import PlansPage from "./pages/PlansPage";
 import ModulesPage from "./pages/ModulesPage";
+import TutorialsPage from "./pages/TutorialsPage";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/planes" element={<PlansPage />} />
         <Route path="/soluciones" element={<SolutionsPage />} />
         <Route path="/modulos" element={<ModulesPage />} />
+        <Route path="/tutoriales" element={<TutorialsPage />} />
       </Routes>
     </BrowserRouter>
   );
