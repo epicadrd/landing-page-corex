@@ -422,9 +422,9 @@ export default function LandingPage() {
                 <p className="font-black mb-3">Facturas recientes</p>
 
                 {[
-                  ["E32000100128", "Distribuidora Méndez", "RD$ 18,500", "Pagada"],
-                  ["E31000100127", "Comercial Rivera", "RD$ 12,900", "Pendiente"],
-                  ["E32000100126", "Servicios Nova", "RD$ 27,300", "Pagada"],
+                  ["DEMO-000128", "Empresa Ejemplo A", "RD$ 18,500", "Pagada"],
+                  ["DEMO-000127", "Comercial Demo", "RD$ 12,900", "Pendiente"],
+                  ["DEMO-000126", "Servicios Ejemplo", "RD$ 27,300", "Pagada"],
                 ].map((row) => (
                   <div
                     key={row[0]}
@@ -449,6 +449,9 @@ export default function LandingPage() {
                     </div>
                   </div>
                 ))}
+                <p className="mt-3 text-center text-[10px] text-slate-400">
+                  Datos mostrados únicamente con fines ilustrativos.
+                </p>
               </div>
             </div>
           </div>
