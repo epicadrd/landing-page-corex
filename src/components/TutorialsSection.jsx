@@ -22,7 +22,7 @@ const tutorials = [
       "Aprende a completar los datos iniciales de tu negocio, personalizar tu cuenta y navegar por las herramientas principales de Aventra.",
     duration: "6 min",
     icon: Sparkles,
-    youtubeId: "",
+    youtubeId: "uFVilaQboYQ",
     topics: [
       "Configuración inicial de la empresa",
       "Recorrido por el dashboard",
