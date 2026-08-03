@@ -29,22 +29,23 @@ const tutorials = [
       "Preferencias generales de la cuenta",
     ],
   },
-  {
-    id: "facturacion",
-    step: "02",
-    title: "Cómo crear una factura",
-    shortDescription: "Emite tu primera factura paso a paso.",
-    description:
-      "Descubre cómo seleccionar un cliente, agregar productos o servicios, aplicar impuestos y emitir una factura correctamente.",
-    duration: "8 min",
-    icon: FileText,
-    youtubeId: "",
-    topics: [
-      "Selección o creación del cliente",
-      "Productos, servicios e impuestos",
-      "Emisión e impresión de la factura",
-    ],
-  },
+{
+  id: "facturacion",
+  step: "02",
+  title: "Facturas, cotizaciones y certificado digital",
+  shortDescription:
+    "Aprende a crear documentos y configurar tu firma electrónica.",
+  description:
+    "Descubre cómo crear facturas y cotizaciones en Aventra, además de subir y configurar tu certificado digital para firmar electrónicamente tus comprobantes fiscales.",
+  duration: "8 min",
+  icon: FileText,
+  youtubeId: "_M6x2a-GsvI",
+  topics: [
+    "Creación y emisión de facturas",
+    "Creación de cotizaciones",
+    "Carga y configuración del certificado digital",
+  ],
+},
   {
     id: "inventario",
     step: "03",
