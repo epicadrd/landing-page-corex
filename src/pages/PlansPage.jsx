@@ -10,7 +10,12 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const whatsappUrl = "https://wa.me/18094061165";
+const trialRegisterUrl = "https://app.aventrard.com/registro-prueba";
+const trialPlanIds = [
+  "emprendedor",
+  "pyme",
+  "empresarial",
+];
 const plansPageUrl = "https://aventrard.com/planes";
 const socialImageUrl = "https://aventrard.com/og-aventra.jpg";
 
@@ -463,27 +468,17 @@ export default function PlansPage() {
                 </ul>
 
                 <a
-                  href={`${whatsappUrl}?text=${encodeURIComponent(
-                    `Hola, deseo recibir más información sobre el plan ${name} ${
-                      billingCycle === "annual" ? "anual" : "mensual"
-                    } de Aventra por US$ ${
-                      billingCycle === "annual"
-                        ? annualPrice
-                        : monthlyPrice
-                    }.`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Solicitar información sobre el plan ${name}`}
-                  className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-4 font-black transition ${
-                    index === 1
-                      ? "bg-white text-black hover:bg-slate-100"
-                      : "bg-black text-white hover:bg-slate-800"
-                  }`}
-                >
-                  Quiero este plan
-                  <ArrowRight size={18} />
-                </a>
+                    href={`${trialRegisterUrl}?plan=${trialPlanIds[index]}&billing=${billingCycle}`}
+                    aria-label={`Probar gratis el plan ${name} durante 15 días`}
+                    className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-4 font-black transition ${
+                      index === 1
+                        ? "bg-white text-black hover:bg-slate-100"
+                        : "bg-black text-white hover:bg-slate-800"
+                    }`}
+                  >
+                    Probar gratis 
+                    <ArrowRight size={18} />
+                  </a>
               </article>
               )
             )}

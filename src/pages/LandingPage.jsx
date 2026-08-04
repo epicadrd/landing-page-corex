@@ -32,6 +32,12 @@ const contactEmail = "contacto@aventrard.com";
 const whatsappUrl = "https://wa.me/18094061165";
 const loginUrl = "https://app.aventrard.com/login";
 const registerUrl = "https://app.aventrard.com/registro";
+const trialRegisterUrl = "https://app.aventrard.com/registro-prueba";
+const trialPlanIds = [
+  "emprendedor",
+  "pyme",
+  "empresarial",
+];
 
 export default function LandingPage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -896,24 +902,15 @@ export default function LandingPage() {
                 </ul>
 
                 <a
-                  href={`${whatsappUrl}?text=${encodeURIComponent(
-                    `Hola, deseo recibir más información sobre el plan ${name} ${
-                      billingCycle === "annual" ? "anual" : "mensual"
-                    } de Aventra por US$ ${
-                      billingCycle === "annual"
-                        ? annualPrice
-                        : monthlyPrice
-                    }.`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`${trialRegisterUrl}?plan=${trialPlanIds[index]}&billing=${billingCycle}`}
                   className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-4 font-black transition ${
                     index === 1
                       ? "bg-white text-black hover:bg-slate-100"
                       : "bg-black text-white hover:bg-slate-800"
                   }`}
                 >
-                  Quiero este plan <ArrowRight size={18} />
+                  Probar gratis
+                  <ArrowRight size={18} />
                 </a>
               </div>
                 )
