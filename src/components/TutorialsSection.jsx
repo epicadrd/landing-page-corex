@@ -56,7 +56,7 @@ const tutorials = [
     "Aprende a gestionar el inventario de tu negocio en Aventra: registra productos, configura existencias, crea tu catálogo digital y realiza conteos para mantener el stock actualizado.",
   duration: "9 min",
   icon: Package,
-  youtubeId: "CACwacElKuk",
+  youtubeId: "NDA0NzPbJrc",
   topics: [
     "Creación y gestión de productos",
     "Configuración del catálogo digital",
