@@ -46,22 +46,24 @@ const tutorials = [
     "Carga y configuración del certificado digital",
   ],
 },
-  {
-    id: "inventario",
-    step: "03",
-    title: "Control de inventario",
-    shortDescription: "Organiza productos, existencias y movimientos.",
-    description:
-      "Conoce cómo registrar productos, configurar el stock mínimo, consultar movimientos y mantener las existencias de tu negocio actualizadas.",
-    duration: "9 min",
-    icon: Package,
-    youtubeId: "",
-    topics: [
-      "Creación de productos y categorías",
-      "Entradas, salidas y ajustes",
-      "Alertas de stock mínimo",
-    ],
-  },
+{
+  id: "inventario",
+  step: "03",
+  title: "Inventario, catálogo digital y conteo",
+  shortDescription:
+    "Gestiona productos, comparte tu catálogo y controla tus existencias.",
+  description:
+    "Aprende a gestionar el inventario de tu negocio en Aventra: registra productos, configura existencias, crea tu catálogo digital y realiza conteos para mantener el stock actualizado.",
+  duration: "9 min",
+  icon: Package,
+  youtubeId: "CACwacElKuk",
+  topics: [
+    "Creación y gestión de productos",
+    "Configuración del catálogo digital",
+    "Conteo y actualización de inventario",
+    "Control de existencias y movimientos",
+  ],
+},
   {
     id: "pos",
     step: "04",
