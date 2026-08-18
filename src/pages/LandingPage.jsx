@@ -176,7 +176,7 @@ export default function LandingPage() {
       "@type": "AggregateOffer",
       priceCurrency: "USD",
       lowPrice: "20",
-      highPrice: "94",
+      highPrice: "55",
       offerCount: "3",
     },
     provider: {
@@ -760,162 +760,169 @@ export default function LandingPage() {
           </div>
 
           <div className="pricing-grid grid md:grid-cols-3 gap-5">
-            {[
-                [
-                  "Básico",
-                  20,
-                  200,
-                  40,
-                  [
-                    "Facturas",
-                    "Cotizaciones",
-                    "Recibos",
-                    "Contabilidad básica",
-                    "2 usuarios",
-                    "e-CF",
-                  ],
-                ],
-                [
-                  "PyME",
-                  45,
-                  450,
-                  90,
-                  [
-                    "Todo en básico",
-                    "Inventario completo",
-                    "Catálogo digital",
-                    "1 punto de venta con hardware",
-                    "3 usuarios",
-                    "Registro de actividades",
-                  ],
-                ],
-                [
-                  "Pro",
-                  94,
-                  940,
-                  188,
-                  [
-                    "Todo en PyME",
-                    "6 usuarios",
-                    "2 puntos de venta con hardware",
-                    "Conduces",
-                    "Órdenes de compra",
-                    "Gestión de proveedores",
-                  ],
-                ],
-              ].map(
-                (
-                  [
-                    name,
-                    monthlyPrice,
-                    annualPrice,
-                    annualSavings,
-                    items,
-                  ],
-                  index
-                ) => (
-              <div
-                key={`${name}-${billingCycle}`}
-                className={`pricing-card-flip rounded-[2rem] border p-7 shadow-sm ${
-                  index === 1
-                    ? "bg-black text-white border-black shadow-2xl scale-[1.02]"
-                    : "bg-white border-black/5"
-                }`}
-                style={{
-                  animationDelay: `${index * 110}ms`,
-                  "--pricing-card-scale": index === 1 ? 1.02 : 1,
-                }}
-              >
-                {index === 1 && (
-                  <p className="inline-flex rounded-full bg-[#14c8bb] text-black px-4 py-1.5 text-xs font-black mb-5">
-                    Más recomendado
-                  </p>
-                )}
+  {[
+    [
+      "Básico",
+      20,
+      200,
+      40,
+      [
+        "Facturación electrónica ilimitada",
+        "Cotizaciones y recibos",
+        "Gestión de clientes y productos",
+        "Contabilidad completa",
+        "Hasta 2 usuarios",
+        "Soporte técnico estándar",
+      ],
+    ],
+    [
+      "PyME",
+      45,
+      450,
+      90,
+      [
+        "Todo lo incluido en Básico",
+        "Inventario completo",
+        "Catálogo digital",
+        "1 punto de venta",
+        "Hasta 3 usuarios",
+        "Registro de actividades",
+        "Soporte técnico preferencial"
+      ],
+    ],
+    [
+      "Pro",
+      94,
+      940,
+      188,
+      [
+        "Todo lo incluido en PyME",
+        "Hasta 6 usuarios",
+        "2 puntos de venta",
+        "Conduces",
+        "Órdenes de compra",
+        "Gestión de proveedores",
+        "Soporte técnico prioritario"
+      ],
+    ],
+  ].map(
+    (
+      [
+        name,
+        monthlyPrice,
+        annualPrice,
+        annualSavings,
+        items,
+      ],
+      index
+    ) => (
+      <div
+        key={`${name}-${billingCycle}`}
+        className={`pricing-card-flip rounded-[2rem] border p-7 shadow-sm ${
+          index === 1
+            ? "bg-black text-white border-black shadow-2xl scale-[1.02]"
+            : "bg-white border-black/5"
+        }`}
+        style={{
+          animationDelay: `${index * 110}ms`,
+          "--pricing-card-scale": index === 1 ? 1.02 : 1,
+        }}
+      >
+        {index === 1 && (
+          <p className="inline-flex rounded-full bg-[#14c8bb] text-black px-4 py-1.5 text-xs font-black mb-5">
+            Más recomendado
+          </p>
+        )}
 
-                <h3 className="text-3xl font-black">{name}</h3>
+        <h3 className="text-3xl font-black">{name}</h3>
 
-                <div className="mt-6 min-h-[92px]">
-                  <div className="flex items-end gap-2">
-                    <p
-                      key={`${name}-${billingCycle}`}
-                      className="text-4xl font-black leading-none"
-                    >
-                      US${" "}
-                      {billingCycle === "annual"
-                        ? annualPrice
-                        : monthlyPrice}
-                    </p>
+        <div className="mt-6 min-h-[92px]">
+          <div className="flex items-end gap-2">
+            <p
+              key={`${name}-${billingCycle}`}
+              className="text-4xl font-black leading-none"
+            >
+              US${" "}
+              {billingCycle === "annual"
+                ? annualPrice
+                : monthlyPrice}
+            </p>
 
-                    <span
-                      className={`pb-1 text-sm font-bold ${
-                        index === 1
-                          ? "text-slate-300"
-                          : "text-slate-500"
-                      }`}
-                    >
-                      /{billingCycle === "annual" ? "año" : "mes"}
-                    </span>
-                  </div>
-
-                  {billingCycle === "annual" ? (
-                    <div className="mt-3 flex flex-wrap items-center gap-2">
-                      <span className="rounded-full bg-[#14c8bb]/15 px-3 py-1 text-xs font-black text-[#14c8bb]">
-                        Ahorras US$ {annualSavings}
-                      </span>
-
-                      <span
-                        className={`text-xs font-semibold ${
-                          index === 1
-                            ? "text-slate-400"
-                            : "text-slate-500"
-                        }`}
-                      >
-                        Equivale a US${" "}
-                        {(annualPrice / 12).toFixed(2)}/mes
-                      </span>
-                    </div>
-                  ) : (
-                    <p
-                      className={`mt-3 text-xs font-semibold ${
-                        index === 1
-                          ? "text-slate-400"
-                          : "text-slate-500"
-                      }`}
-                    >
-                      Pago mes a mes
-                    </p>
-                  )}
-                </div>
-
-                <ul className="mt-7 space-y-3">
-                  {items.map((item) => (
-                    <li key={item} className="flex items-center gap-3">
-                      <CheckCircle2
-                        size={20}
-                        className={
-                          index === 1 ? "text-[#14c8bb]" : "text-[#0f766e]"
-                        }
-                      />
-                      <span className="font-semibold">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href={`${trialRegisterUrl}?plan=${trialPlanIds[index]}&billing=${billingCycle}`}
-                  className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-4 font-black transition ${
-                    index === 1
-                      ? "bg-white text-black hover:bg-slate-100"
-                      : "bg-black text-white hover:bg-slate-800"
-                  }`}
-                >
-                  Probar gratis
-                  <ArrowRight size={18} />
-                </a>
-              </div>
-                )
-              )}
+            <span
+              className={`pb-1 text-sm font-bold ${
+                index === 1
+                  ? "text-slate-300"
+                  : "text-slate-500"
+              }`}
+            >
+              /{billingCycle === "annual" ? "año" : "mes"}
+            </span>
           </div>
+
+          {billingCycle === "annual" ? (
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <span className="rounded-full bg-[#14c8bb]/15 px-3 py-1 text-xs font-black text-[#14c8bb]">
+                Ahorras US$ {annualSavings}
+              </span>
+
+              <span
+                className={`text-xs font-semibold ${
+                  index === 1
+                    ? "text-slate-400"
+                    : "text-slate-500"
+                }`}
+              >
+                Equivale a US${" "}
+                {(annualPrice / 12).toFixed(2)}/mes
+              </span>
+            </div>
+          ) : (
+            <p
+              className={`mt-3 text-xs font-semibold ${
+                index === 1
+                  ? "text-slate-400"
+                  : "text-slate-500"
+              }`}
+            >
+              Pago mes a mes
+            </p>
+          )}
+        </div>
+
+        <ul className="mt-7 space-y-3">
+          {items.map((item) => (
+            <li
+              key={item}
+              className="flex items-center gap-3"
+            >
+              <CheckCircle2
+                size={20}
+                className={
+                  index === 1
+                    ? "text-[#14c8bb]"
+                    : "text-[#0f766e]"
+                }
+              />
+              <span className="font-semibold">{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href={`${trialRegisterUrl}?plan=${trialPlanIds[index]}&billing=${billingCycle}`}
+          className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-4 font-black transition ${
+            index === 1
+              ? "bg-white text-black hover:bg-slate-100"
+              : "bg-black text-white hover:bg-slate-800"
+          }`}
+        >
+          Probar gratis
+          <ArrowRight size={18} />
+        </a>
+      </div>
+    )
+  )}
+</div>
         </section>
 
         <section

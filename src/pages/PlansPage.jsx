@@ -175,7 +175,7 @@ export default function PlansPage() {
         },
       },
       offers: [
-        {
+       {
           "@type": "Offer",
           name: "Plan Básico",
           price: "20",
@@ -186,7 +186,7 @@ export default function PlansPage() {
         {
           "@type": "Offer",
           name: "Plan PyME",
-          price: "45",
+          price: "35",
           priceCurrency: "USD",
           url: plansPageUrl,
           availability: "https://schema.org/InStock",
@@ -194,7 +194,7 @@ export default function PlansPage() {
         {
           "@type": "Offer",
           name: "Plan Pro",
-          price: "94",
+          price: "55",
           priceCurrency: "USD",
           url: plansPageUrl,
           availability: "https://schema.org/InStock",
@@ -222,50 +222,59 @@ export default function PlansPage() {
     };
   }, []);
 
-  const plans = [
-    {
-      name: "Básico",
-      monthlyPrice: 20,
-      annualPrice: 200,
-      annualSavings: 40,
-      items: [
-        "Facturas",
-        "Cotizaciones",
-        "Recibos",
-        "Contabilidad básica",
-        "2 usuarios",
-        "e-CF",
-      ],
-    },
-    {
-      name: "PyME",
-      monthlyPrice: 45,
-      annualPrice: 450,
-      annualSavings: 90,
-      items: [
-        "Todo del básico",
-        "Inventario completo",
-        "Catálogo digital",
-        "1 punto de venta con hardware",
-        "3 usuarios",
-        "Registro de actividades",
-      ],
-    },
-    {
-      name: "Pro",
-      monthlyPrice: 94,
-      annualPrice: 940,
-      annualSavings: 188,
-      items: [
-        "Todo en PyME",
-        "6 usuarios",
-        "2 puntos de venta con hardware",
-        "Conduces",
-        "Órdenes de compra",
-        "Gestión de proveedores",
-      ],
-    },
-  ];
+const plans = [
+  {
+    name: "Básico",
+    monthlyPrice: 20,
+    annualPrice: 200,
+    annualSavings: 40,
+    description:
+      "Para emprendedores y pequeños negocios que necesitan facturar y administrar sus operaciones.",
+    items: [
+      "Facturación electrónica ilimitada",
+      "Cotizaciones y recibos",
+      "Gestión de clientes y productos",
+      "Contabilidad completa",
+      "Hasta 2 usuarios",
+      "Soporte técnico estándar",
+    ],
+  },
+  {
+    name: "PyME",
+    monthlyPrice: 35,
+    annualPrice: 350,
+    annualSavings: 70,
+    description:
+      "Para negocios que necesitan controlar sus ventas, inventario y operaciones diarias.",
+    badge: "Más popular",
+    items: [
+      "Todo lo incluido en Básico",
+      "Inventario completo",
+      "Catálogo digital",
+      "1 punto de venta",
+      "Hasta 3 usuarios",
+      "Registro de actividades",
+      "Soporte técnico preferencial",
+    ],
+  },
+  {
+    name: "Pro",
+    monthlyPrice: 55,
+    annualPrice: 550,
+    annualSavings: 110,
+    description:
+      "Para empresas con más usuarios, puntos de venta y procesos administrativos.",
+    items: [
+      "Todo lo incluido en PyME",
+      "Hasta 6 usuarios",
+      "2 puntos de venta",
+      "Conduces",
+      "Órdenes de compra",
+      "Gestión de proveedores",
+      "Soporte técnico prioritario",
+    ],
+  },
+];
 
   return (
     <main className="min-h-screen bg-white text-black overflow-hidden selection:bg-[#14c8bb]/30">
