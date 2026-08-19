@@ -369,9 +369,9 @@ export default function LandingPage() {
             </h1>
 
             <p className="mt-8 text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-              Emite facturas electrónicas e-CF, controla tu inventario, vende desde
-              punto de venta y administra las finanzas de tu negocio desde una sola
-              plataforma.
+              Simplifica la gestión de tu negocio con facturación electrónica e-CF,
+              inventario, ventas, punto de venta y control financiero, todo desde una
+              sola plataforma.
             </p>
             
            <div className="mt-10 flex flex-col sm:flex-row gap-4">
