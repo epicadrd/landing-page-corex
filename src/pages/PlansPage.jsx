@@ -241,9 +241,9 @@ const plans = [
   },
   {
     name: "PyME",
-    monthlyPrice: 35,
-    annualPrice: 350,
-    annualSavings: 70,
+    monthlyPrice: 45,
+    annualPrice: 450,
+    annualSavings: 90,
     description:
       "Para negocios que necesitan controlar sus ventas, inventario y operaciones diarias.",
     badge: "Más popular",
@@ -259,9 +259,9 @@ const plans = [
   },
   {
     name: "Pro",
-    monthlyPrice: 55,
-    annualPrice: 550,
-    annualSavings: 110,
+    monthlyPrice: 94,
+    annualPrice: 940,
+    annualSavings: 188,
     description:
       "Para empresas con más usuarios, puntos de venta y procesos administrativos.",
     items: [
